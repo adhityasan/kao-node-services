@@ -1,0 +1,26 @@
+{
+  "name": "kao-nodeservices",
+  "version": "1.0.0",
+  "description": "service for kao-reactapp",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adhityasan/node-services.git"
+  },
+  "keywords": [
+    "node",
+    "javascript",
+    "service",
+    "rest",
+    "kaonashi"
+  ],
+  "author": "adhityasan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/adhityasan/node-services/issues"
+  },
+  "homepage": "https://github.com/adhityasan/node-services#readme"
+}
