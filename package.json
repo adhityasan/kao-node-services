@@ -22,5 +22,22 @@
   "bugs": {
     "url": "https://github.com/adhityasan/node-services/issues"
   },
-  "homepage": "https://github.com/adhityasan/node-services#readme"
+  "homepage": "https://github.com/adhityasan/node-services#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "config": "^3.0.0",
+    "debug": "^4.1.0",
+    "dotenv": "^6.2.0",
+    "express": "^4.16.4",
+    "helmet": "^3.15.0",
+    "joi": "^14.3.0",
+    "jsonwebtoken": "^8.4.0",
+    "lodash": "^4.17.11",
+    "module-alias": "^2.1.0",
+    "mongoose": "^5.3.16",
+    "password-validator": "^4.1.1"
+  },
+  "devDependencies": {
+    "morgan": "^1.9.1"
+  }
 }
