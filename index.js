@@ -22,6 +22,10 @@ if (!config.get('jwtPrivateKey')) {
   process.exit(1) // anything else but 0 means failure
 }
 
+app.locals.title = config.get('name')
+app.locals.author = config.get('author')
+app.locals.email = config.get('email')
+
 mongoose.connect(dbconnection, connectOption)
   .then(() => dbdebug(`Database ${env.parsed.DB_NAME} selected`))
   .catch(err => dbdebug(`Fail connect to ${dbconnection}: ${err}`))
