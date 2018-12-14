@@ -8,6 +8,7 @@ const debug = require('debug')('app:startup')
 const dbdebug = require('debug')('app:db')
 const mongoose = require('mongoose')
 
+const r_auth = require('@routes/auth')
 const c = require('@constants/colorize')
 
 const dbconnection = `mongodb://${env.parsed.DB_HOST}:${env.parsed.DB_PORT}/${env.parsed.DB_NAME}`
@@ -40,6 +41,8 @@ if (app.get('env')) {
   app.use(morgan(morganType))
   debug(`Morgan enabled on ${morganType} mode...`)
 }
+
+app.use('/api/auth', r_auth)
 
 app.listen(env.parsed.PORT, () => {
   debug(`App run on ${env.parsed.NODE_ENV.toUpperCase()} mode...`)
