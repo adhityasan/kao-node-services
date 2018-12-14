@@ -10,8 +10,31 @@ function joiValidate(data, joiSchema, customPath = false) {
     return Joi.validate(data, schema)
   } else {
     schema = joiSchema
-    return Joi.validate(data, schema)
+function buildErrorResponse(joiError) {
+  if (joiError.isJoi) {
+    
+    if (!joiError.details.length > 1) {
+      return new Object({ 
+        message: joiError.details[0].message, 
+        data: joiError.details[0] 
+      })
+    } else {
+      const messages = _.map(joiError.details, function(x) {
+        return x.message
+      })
+      return new Object({ 
+        message: messages.join(', '), 
+        data: joiError.details 
+      })
+    }
+
+  } else {
+    return {
+      message: 'Something went wrong and it\'s not from joi validation',
+      data: joiError._object
+    }
   }
 }
 
-module.exports = joiValidate
+exports.joiValidate = joiValidate
+exports.buildErrorResponse = buildErrorResponse
