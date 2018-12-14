@@ -39,5 +39,14 @@
   },
   "devDependencies": {
     "morgan": "^1.9.1"
+  },
+  "_moduleAliases": {
+    "@root" : ".",
+    "@config" : "./config",
+    "@constants" : "./constants",
+    "@middlewares" : "./middlewares",
+    "@models" : "./models",
+    "@routes" : "./routes",
+    "@utils" : "./utils"
   }
 }
