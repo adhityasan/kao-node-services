@@ -1,15 +1,20 @@
+const _ = require('lodash')
 const Joi = require('joi')
 
-function joiValidate(data, joiSchema, customPath = false) {
+function joiValidate(data, joiSchema, customPath=false, abortEarly=false) {
   let schema = {}
 
   if (customPath) {
     for (let path in data) {
       schema[path] = joiSchema[path]
     }
-    return Joi.validate(data, schema)
+    return Joi.validate(data, schema, {abortEarly: abortEarly})
   } else {
     schema = joiSchema
+    return Joi.validate(data, schema, {abortEarly: abortEarly})
+  }
+}
+
 function buildErrorResponse(joiError) {
   if (joiError.isJoi) {
     
