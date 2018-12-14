@@ -1,0 +1,14 @@
+{
+  "name": "Kaoなし Node Service - Development Mode",
+  "author": "adhityasan",
+  "email": "adhityad3v@gmail.com",
+  "mail": {
+    "host": "dev.main.server",
+    "port": "465",
+    "ssl": true,
+    "from": "adhityad3v@gmail.com",
+    "username": "kaonashi08",
+    "password": "xXxXxXxXx"
+  },
+  "jwtPrivateKey": "!@#$1234"
+}
