@@ -8,11 +8,18 @@ const debug = require('debug')('app:startup')
 const dbdebug = require('debug')('app:db')
 const mongoose = require('mongoose')
 
+const c = require('@constants/colorize')
+
 const dbconnection = `mongodb://${env.parsed.DB_HOST}:${env.parsed.DB_PORT}/${env.parsed.DB_NAME}`
 const app = express()
 const connectOption = {
   useCreateIndex: true,
   useNewUrlParser: true
+}
+
+if (!config.get('jwtPrivateKey')) {
+  debug(`${c.Bright}${c.FgRed}FATAL ERROR ${c.Reset}jwtPrivateKey configuration is not defined`)
+  process.exit(1) // anything else but 0 means failure
 }
 
 mongoose.connect(dbconnection, connectOption)
