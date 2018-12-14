@@ -57,9 +57,9 @@ Schema.methods.getNavigation = async function() {
 const User = mongoose.model('User', Schema)
 
 const joiSchema = {
-  username: Joi.string().min(6).max(30).required(),
-  password: Joi.string().min(8).max(1024).required(),
-  email: Joi.string().email().required(),
+  username: Joi.string().min(6).max(30).regex(/@/, { name: 'valid username', invert: true }).required(),
+  email: Joi.string().email().regex(/@/, { name: 'valid email', invert: false }).required(),
+  password: Joi.string().min(8).max(100).required(),
   profile: Joi.string().optional()
 }
 
