@@ -30,7 +30,7 @@ const Schema = new mongoose.Schema({
     lowercase: true,
     trim: true
   },
-  verified: {
+  activated: {
     type: Boolean,
     default: false
   },
