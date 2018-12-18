@@ -9,6 +9,7 @@ const dbdebug = require('debug')('app:db')
 const mongoose = require('mongoose')
 
 const r_auth = require('@routes/auth')
+const r_user = require('@routes/user')
 const c = require('@constants/colorize')
 
 const dbconnection = `mongodb://${env.parsed.DB_HOST}:${env.parsed.DB_PORT}/${env.parsed.DB_NAME}`
@@ -43,6 +44,7 @@ if (app.get('env')) {
 }
 
 app.use('/api/auth', r_auth)
+app.use('/api/user', r_user)
 
 app.listen(env.parsed.PORT, () => {
   debug(`App run on ${env.parsed.NODE_ENV.toUpperCase()} mode...`)
