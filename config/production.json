@@ -10,5 +10,6 @@
     "username": "kaonashi08",
     "password": "xXxXxXxXx"
   },
-  "jwtPrivateKey": "!@#$1234"
+  "jwtPrivateKey": "!@#$1234",
+  "tokenPrefix": "KaonashiSan__"
 }

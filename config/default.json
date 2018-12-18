@@ -2,5 +2,6 @@
   "name": "Kaoなし Node Service",
   "author": "adhityasan",
   "email": "adhityad3v@gmail.com",
-  "jwtPrivateKey": ""
+  "jwtPrivateKey": "",
+  "tokenPrefix": ""
 }
