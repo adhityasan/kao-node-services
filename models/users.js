@@ -30,6 +30,10 @@ const Schema = new mongoose.Schema({
     lowercase: true,
     trim: true
   },
+  verified: {
+    type: Boolean,
+    default: false
+  },
   profile: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Profile'
