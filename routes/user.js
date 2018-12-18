@@ -38,19 +38,19 @@ async function getUser(req, res) {
 }
 
 async function createUser(req, res) {
-  const { error: joiError } = joiValidate(req.body, joiSchema_User)
+  const { error: joiError } = joiValidate(req.body, joiSchema_User, true)
 
   if (joiError) return res.status(400).send(buildErrorResponse(joiError))
   
   
   try {
-    const newuser = new User(_.pick(req.body, [ 'username', 'password', 'email', 'group', 'role', 'profile', 'activated' ]))
+    const newuser = new User(_.pick(req.body, [ 'username', 'password', 'email', 'groups', 'role', 'profile', 'activated' ]))
     const salt = await bcrypt.genSalt(10)
     const hashed = await bcrypt.hash(newuser.password, salt)
     newuser.password = hashed
     const saveResult = await newuser.save()
 
-    res.send({ message: 'Success create new user', data: saveResult })
+    res.send({ message: 'Success create new user', data: _.pick(saveResult, [ '_id', 'username', 'email', 'activated' ]) })
   } catch (error) {
     res.send({ message: 'Fail create new user', error: error })
   }
