@@ -7,6 +7,35 @@ const { User, joiSchema_User } = require('@models/users')
 
 const router = express.Router()
 
+async function login(req, res) {
+  const { error: joiError } = joiValidate(req.body, joiSchema_User, true)
+  
+  if (joiError) return res.send(joiErrResponse(joiError))
+  
+  try {
+    const { username, password, email } = req.body
+    const user = !email ? 
+      await User.findOne({ username: username }) :
+      await User.findOne({ email: email }) 
+
+    if (!user) return res.status(400).send({ message: 'Username atau email tidak ditemukan', data: _.pick(req.body, ['username', 'email']) })
+
+    const validPassword = await bcrypt.compare(password, user.password)
+
+    if (!validPassword) return res.status(400).send({ message: 'Password tidak valid', data: _.pick(req.body, ['username', 'email']) })
+
+    const token = user.generateAuthToken()
+
+    user.lastLogin = new Date()
+    user.save()
+    
+    res.header('x-auth-token', token).send(user)
+    
+  } catch (error) {
+    res.send(error)
+  }
+}
+
 async function register(req, res) {
   const { error: joiError } = joiValidate(req.body, joiSchema_User)
   
@@ -30,6 +59,7 @@ async function register(req, res) {
   }
 }
 
+router.post('/login', login)
 router.post('/register', register)
 
 module.exports = router
