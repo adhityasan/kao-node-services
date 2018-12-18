@@ -48,8 +48,9 @@ const Schema = new mongoose.Schema({
 })
 
 Schema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this._id, email: this.email }, config.get('jwtPrivateKey'))
-  return token
+  const token = jwt.sign({ _id: this._id, email: this.email, verified: this.verified, groups: this.groups, role: this.role }, config.get('jwtPrivateKey'))
+  const prefix = config.get('tokenPrefix')
+  return `${prefix}${token}`
 }
 
 Schema.methods.getNavigation = async function() {
