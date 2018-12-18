@@ -33,7 +33,7 @@ async function getUser(req, res) {
 
   try {
     const user = await User.findById(userid).select('-password')
-    
+  
     res.send({ message: 'Success get user data', data: user })
   } catch (error) {
     res.status(400).send({ message: 'Fail to get user data', error: error })
@@ -59,8 +59,31 @@ async function createUser(req, res) {
   }
 }
 
+async function updateUser(req, res) {
+  const userid = req.params.id
+  const updates = req.body
+  const { error: joiError } = isObjectId(userid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
+  
+  const user = await User.findById(userid)
+
+  if (!user) return res.status(404).send({ message: 'User with given id was not found', data: { _id: userid, ...updates } })
+
+  try {
+    user.set(updates)
+    const saveResult = await user.save()
+    
+    res.send({ message: `Success update user, id: ${userid}`, data: saveResult })
+  } catch (error) {
+    
+    res.status(400).send({ message: `Fail update user, id: ${userid}`, error: error })
+  }
+}
+
 router.get('/', authorize, getUsers)
 router.post('/', authorize, createUser)
 router.get('/:id', authorize, getUser)
+router.put('/:id', authorize, updateUser)
 
 module.exports = router
