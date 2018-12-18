@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const express = require('express')
 const bcrypt = require('bcrypt')
+const authorize = require('@middlewares/authorization')
 
 const { joiValidate, buildErrorResponse: joiErrResponse } = require('@utils/joi-validate')
 const { User, joiSchema_User } = require('@models/users')
@@ -29,10 +30,10 @@ async function login(req, res) {
     user.lastLogin = new Date()
     user.save()
     
-    res.header('x-auth-token', token).send(user)
+    res.header('x-auth-token', token).send(_.pick(user, [ '_id', 'username', 'email', 'verified', 'lastLogin', 'navigation', 'groups', 'role' ]))
     
   } catch (error) {
-    res.send(error)
+    res.status(400).send({ message: 'Semething went wrong in the process', error: error })
   }
 }
 
