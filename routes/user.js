@@ -6,7 +6,7 @@ const router = express.Router()
 const { User, joiSchema_User } = require('@models/users')
 const authorize = require('@middlewares/authorization')
 const mongoosedocquery = require('@utils/mongoose-doc-query')
-const { joiValidate, buildErrorResponse } = require('@utils/joi-validate')
+const { joiValidate, buildErrorResponse, isObjectId } = require('@utils/joi-validate')
 
 async function getUsers(req, res) {
   let docquery = mongoosedocquery(req.query)
@@ -27,6 +27,9 @@ async function getUsers(req, res) {
 
 async function getUser(req, res) {
   const userid = req.params.id
+  const { error: joiError } = isObjectId(userid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
 
   try {
     const user = await User.findById(userid).select('-password')
