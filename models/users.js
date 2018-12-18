@@ -34,9 +34,8 @@ const Schema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Profile'
   },
-  access: {
-    type: Object
-  },
+  navigation: Array,
+  lastLogin: Date,
   groups: [ { type: mongoose.Schema.Types.ObjectId, ref: 'Group' } ],
   role: {
     type: mongoose.Schema.Types.ObjectId,
