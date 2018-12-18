@@ -1,5 +1,6 @@
 const mongoose = require('mongoose')
 const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 const jwt = require('jsonwebtoken')
 const config = require('config')
 const { Navigation } = require('@models/navigations')
@@ -64,7 +65,9 @@ const joiSchema = {
   username: Joi.string().min(6).max(30).regex(/@/, { name: 'valid username', invert: true }).required(),
   email: Joi.string().email().regex(/@/, { name: 'valid email', invert: false }).required(),
   password: Joi.string().min(8).max(100).required(),
-  profile: Joi.string().optional()
+  profile: Joi.objectId().error(() => 'Profile should be an ObjectId ref Profile document'),
+  groups: Joi.array().items(Joi.objectId().error(() => 'Groups item should be an ObjectId ref Group document')).error(() => 'Groups should be an array contain ObjectId'),
+  role: Joi.objectId().error(() => 'Role should be an ObjectId ref Role document')
 }
 
 exports.User = User
