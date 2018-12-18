@@ -22,6 +22,19 @@ async function getUsers(req, res) {
   }
 }
 
+async function getUser(req, res) {
+  const userid = req.params.id
+
+  try {
+    const user = await User.findById(userid).select('-password')
+    
+    res.send({ message: 'Success get user data', data: user })
+  } catch (error) {
+    res.send({ message: 'Fail to get user data', error: error })
+  }
+}
+
 router.get('/', authorize, getUsers)
+router.get('/:id', authorize, getUser)
 
 module.exports = router
