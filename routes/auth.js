@@ -56,7 +56,7 @@ async function register(req, res) {
 
     res.send({ message: 'Success register user', data: _.pick(saveResult, ['username', 'email']) })
   } catch (error) {
-    res.status(400).send({ message: 'Fail register user', data: error })
+    res.status(400).send({ message: 'Fail register user', error: error })
   }
 }
 

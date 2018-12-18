@@ -21,7 +21,7 @@ function buildErrorResponse(joiError) {
     if (!joiError.details.length > 1) {
       return new Object({ 
         message: joiError.details[0].message, 
-        data: joiError.details[0] 
+        error: joiError.details[0] 
       })
     } else {
       const messages = _.map(joiError.details, function(x) {
@@ -29,14 +29,14 @@ function buildErrorResponse(joiError) {
       })
       return new Object({ 
         message: messages.join(', '), 
-        data: joiError.details 
+        error: joiError.details 
       })
     }
 
   } else {
     return {
       message: 'Something went wrong and it\'s not from joi validation',
-      data: joiError._object
+      error: joiError._object
     }
   }
 }
