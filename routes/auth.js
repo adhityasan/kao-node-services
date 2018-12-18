@@ -59,7 +59,12 @@ async function register(req, res) {
   }
 }
 
+async function whoami(req, res) {
+  return res.send(req.user)
+}
+
 router.post('/login', login)
 router.post('/register', register)
+router.get('/whoami', authorize, whoami)
 
 module.exports = router
