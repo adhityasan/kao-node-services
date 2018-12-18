@@ -1,5 +1,6 @@
 const _ = require('lodash')
 const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 
 function joiValidate(data, joiSchema, customPath=false, abortEarly=false) {
   let schema = {}
@@ -41,5 +42,12 @@ function buildErrorResponse(joiError) {
   }
 }
 
+function isObjectId(id) {
+  const schema = { id: Joi.objectId().error(() => 'The given id is not a valid ObjectId')}
+  const data = { id: id }
+  return Joi.validate(data, schema)
+}
+
 exports.joiValidate = joiValidate
 exports.buildErrorResponse = buildErrorResponse
+exports.isObjectId = isObjectId
