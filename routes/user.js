@@ -81,9 +81,28 @@ async function updateUser(req, res) {
   }
 }
 
+async function deleteUser(req, res) {
+  const userid = req.params.id
+  const { error: joiError } = isObjectId(userid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
+
+  try {
+    const user = await User.findByIdAndDelete(userid)
+
+    if (!user) return res.status(404).send({ message: 'User with given id was not found', data: { _id: userid } })
+    
+    res.send({ message: `Success delete user, id: ${userid}`, data: user })
+  } catch (error) {
+    
+    res.status(400).send({ message: `Fail delete user, id: ${userid}`, error: error })
+  }
+}
+
 router.get('/', authorize, getUsers)
 router.post('/', authorize, createUser)
 router.get('/:id', authorize, getUser)
 router.put('/:id', authorize, updateUser)
+router.delete('/:id', authorize, deleteUser)
 
 module.exports = router
