@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 
 const Schema = new mongoose.Schema({
   name: {
@@ -21,6 +23,15 @@ const Schema = new mongoose.Schema({
   }
 })
 
+const joiSchema = {
+  name: Joi.string().min(5).max(30).required(),
+  description: Joi.string().min(8).max(100).required(),
+  main_url: Joi.string().optional(),
+  data: Joi.object().optional(),
+  roles: Joi.array().items(Joi.objectId().error(() => 'Roles item should be an ObjectId ref Role document')).error(() => 'Roles should be an array').optional()
+}
+
 const Group = mongoose.model('Group', Schema)
 
 exports.Group = Group
+exports.joiSchema_Group = joiSchema
