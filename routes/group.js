@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { Group, joiSchema_Group } = require('@models/groups')
 
-const authorize = require('@middlewares/authorization')
+const { authorize_admin } = require('@middlewares/authorization')
 const mongoosedocquery = require('@utils/mongoose-doc-query')
 const { joiValidate, buildErrorResponse, isObjectId } = require('@utils/joi-validate')
 
@@ -96,10 +96,10 @@ async function deleteGroup(req, res) {
   }
 }
 
-router.get('/', authorize, getGroups)
-router.get('/:id', authorize, getGroup)
-router.post('/', authorize, createGroup)
-router.put('/:id', authorize, updateGroup)
-router.delete('/:id', authorize, deleteGroup)
+router.get('/', authorize_admin, getGroups)
+router.get('/:id', authorize_admin, getGroup)
+router.post('/', authorize_admin, createGroup)
+router.put('/:id', authorize_admin, updateGroup)
+router.delete('/:id', authorize_admin, deleteGroup)
 
 module.exports = router

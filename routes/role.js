@@ -2,7 +2,7 @@ const express = require('express')
 const router = express.Router()
 const { Role, joiSchema_Role } = require('@models/roles')
 
-const authorize = require('@middlewares/authorization')
+const { authorize_admin } = require('@middlewares/authorization')
 const mongoosedocquery = require('@utils/mongoose-doc-query')
 const { joiValidate, buildErrorResponse, isObjectId } = require('@utils/joi-validate')
 
@@ -96,10 +96,10 @@ async function deleteRole(req, res) {
   }
 }
 
-router.get('/', authorize, getRoles)
-router.get('/:id', authorize, getRole)
-router.post('/', authorize, createRole)
-router.put('/:id', authorize, updateRole)
-router.delete('/:id', authorize, deleteRole)
+router.get('/', authorize_admin, getRoles)
+router.get('/:id', authorize_admin, getRole)
+router.post('/', authorize_admin, createRole)
+router.put('/:id', authorize_admin, updateRole)
+router.delete('/:id', authorize_admin, deleteRole)
 
 module.exports = router

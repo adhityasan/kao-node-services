@@ -1,7 +1,7 @@
 const _ = require('lodash')
 const express = require('express')
 const bcrypt = require('bcrypt')
-const authorize = require('@middlewares/authorization')
+const  { authorize_user } = require('@middlewares/authorization')
 
 const { joiValidate, buildErrorResponse: joiErrResponse } = require('@utils/joi-validate')
 const { User, joiSchema_User } = require('@models/users')
@@ -66,6 +66,6 @@ async function whoami(req, res) {
 
 router.post('/login', login)
 router.post('/register', register)
-router.get('/whoami', authorize, whoami)
+router.get('/whoami', authorize_user, whoami)
 
 module.exports = router

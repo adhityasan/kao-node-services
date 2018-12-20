@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
 const { Navigation, joiSchema_Navigation } = require('@models/navigations')
-const authorize = require('@middlewares/authorization')
+const { authorize_admin } = require('@middlewares/authorization')
 
 const { joiValidate, isObjectId, buildErrorResponse } = require('@utils/joi-validate')
 
@@ -86,10 +86,10 @@ async function deleteNavigation(req, res) {
   }
 }
 
-router.get('/', authorize, getNavigations)
-router.post('/', authorize, createNavigation)
-router.get('/:id', authorize, getNavigation)
-router.put('/:id', authorize, updateNavigation)
-router.delete('/:id', authorize, deleteNavigation)
+router.get('/', authorize_admin, getNavigations)
+router.post('/', authorize_admin, createNavigation)
+router.get('/:id', authorize_admin, getNavigation)
+router.put('/:id', authorize_admin, updateNavigation)
+router.delete('/:id', authorize_admin, deleteNavigation)
 
 module.exports = router

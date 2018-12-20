@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt')
 const router = express.Router()
 
 const { User, joiSchema_User } = require('@models/users')
-const authorize = require('@middlewares/authorization')
+const { authorize_admin } = require('@middlewares/authorization')
 const mongoosedocquery = require('@utils/mongoose-doc-query')
 const { joiValidate, buildErrorResponse, isObjectId } = require('@utils/joi-validate')
 
@@ -45,7 +45,7 @@ async function createUser(req, res) {
 
   if (joiError) return res.status(400).send(buildErrorResponse(joiError))
   
-  
+
   try {
     const newuser = new User(_.pick(req.body, [ 'username', 'password', 'email', 'groups', 'role', 'profile', 'activated' ]))
     const salt = await bcrypt.genSalt(10)
@@ -99,10 +99,10 @@ async function deleteUser(req, res) {
   }
 }
 
-router.get('/', authorize, getUsers)
-router.post('/', authorize, createUser)
-router.get('/:id', authorize, getUser)
-router.put('/:id', authorize, updateUser)
-router.delete('/:id', authorize, deleteUser)
+router.get('/', authorize_admin, getUsers)
+router.post('/', authorize_admin, createUser)
+router.get('/:id', authorize_admin, getUser)
+router.put('/:id', authorize_admin, updateUser)
+router.delete('/:id', authorize_admin, deleteUser)
 
 module.exports = router

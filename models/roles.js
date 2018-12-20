@@ -25,7 +25,7 @@ const Schema = new mongoose.Schema({
 const joiSchema = {
   name: Joi.string().min(5).max(30).required(),
   description: Joi.string().min(8).max(100).required(),
-  main_url: Joi.string().optional(),
+  main_url: Joi.string(),
   data: Joi.object().optional(),
   tasks: Joi.array().items(Joi.object().error(() => 'Roles item should be an Object')).error(() => 'Roles should be an array').optional()
 }
