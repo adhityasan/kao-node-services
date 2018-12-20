@@ -51,7 +51,17 @@ const Schema = new mongoose.Schema({
 })
 
 Schema.methods.generateAuthToken = function() {
-  const token = jwt.sign({ _id: this._id, email: this.email, verified: this.verified, groups: this.groups, role: this.role }, config.get('jwtPrivateKey'))
+  const payload = { 
+    _id: this._id, 
+    email: this.email, 
+    verified: this.verified, 
+    groups: this.groups, 
+    role: this.role
+  }
+
+  
+  const privateKey = config.get('jwtPrivateKey')
+  const token = jwt.sign(payload, privateKey)
   const prefix = config.get('tokenPrefix')
   return `${prefix}${token}`
 }
