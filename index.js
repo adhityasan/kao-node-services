@@ -12,6 +12,7 @@ const r_auth = require('@routes/auth')
 const r_user = require('@routes/user')
 const r_group = require('@routes/group')
 const r_role = require('@routes/role')
+const r_navigation = require('@routes/navigation')
 const c = require('@constants/colorize')
 
 const dbconnection = `mongodb://${env.parsed.DB_HOST}:${env.parsed.DB_PORT}/${env.parsed.DB_NAME}`
@@ -49,6 +50,7 @@ app.use('/api/auth', r_auth)
 app.use('/api/user', r_user)
 app.use('/api/group', r_group)
 app.use('/api/role', r_role)
+app.use('/api/navigation', r_navigation)
 
 app.listen(env.parsed.PORT, () => {
   debug(`App run on ${env.parsed.NODE_ENV.toUpperCase()} mode...`)
