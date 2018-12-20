@@ -59,6 +59,7 @@ Schema.methods.generateAuthToken = function() {
     role: this.role
   }
 
+  if (this.username === 'administrator') payload['isAdmin'] = true // remove this line on production mode
   
   const privateKey = config.get('jwtPrivateKey')
   const token = jwt.sign(payload, privateKey)
