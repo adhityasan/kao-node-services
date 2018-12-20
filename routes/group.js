@@ -4,7 +4,7 @@ const { Group, joiSchema_Group } = require('@models/groups')
 
 const authorize = require('@middlewares/authorization')
 const mongoosedocquery = require('@utils/mongoose-doc-query')
-const { joiValidate, buildErrorResponse } = require('@utils/joi-validate')
+const { joiValidate, buildErrorResponse, isObjectId } = require('@utils/joi-validate')
 
 async function getGroups(req, res) {
   let docquery = mongoosedocquery(req.query)
@@ -20,6 +20,23 @@ async function getGroups(req, res) {
     res.send({ message: 'Success get groups data', data: groups })
   } catch (error) {
     res.status(400).send({ message: 'Fail to get groups data', errror: error })
+  }
+}
+
+async function getGroup(req, res) {
+  const groupid = req.params.id
+  const { error: joiError } = isObjectId(groupid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
+
+  try {
+    const group = await Group.findById(groupid)
+    
+    if (!group) return res.status(404).send({ message: 'Group with given id was not found', data: { _id: groupid }})
+    
+    res.send({ message: `Success get group, id: ${groupid}`, data: group })
+  } catch (error) {
+    res.status(400).send({ message: `Fail get group, id ${groupid}`, error: error })
   }
 }
 
@@ -39,7 +56,50 @@ async function createGroup(req, res) {
   }
 }
 
+async function updateGroup(req, res) {
+  const groupid = req.params.id
+  const updates = req.body
+
+  const { error: joiError } = isObjectId(groupid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
+  
+  try {
+    const group = await Group.findById(groupid)
+
+    if (!group) return res.status(404).send({ message: 'Group with given id was not found', data: { _id: groupid, ...updates } })
+
+    group.set(updates)
+
+    const saveResult = await group.save()
+
+    res.send({ message: `Success update group, id: ${groupid}`, data: saveResult })
+  } catch (error) {
+    res.send({ message: `Fail update group, id: ${groupid}`, error: error })    
+  }
+}
+
+async function deleteGroup(req, res) {
+  const groupid = req.params.id
+  const { error: joiError } = isObjectId(groupid)
+
+  if (joiError) return res.status(400).send(buildErrorResponse(joiError))
+
+  try {
+    const group = await Group.findByIdAndRemove(groupid)
+
+    if (!group) return res.status(404).send({ message: 'Group with given id was not found', data: { _id: groupid, ...group }})
+
+    res.send({ message: `Success delete group, id: ${groupid}`, data: group })
+  } catch (error) {
+    res.send({ message: `Fail delete group, id: ${groupid}`, error: error })
+  }
+}
+
 router.get('/', authorize, getGroups)
+router.get('/:id', authorize, getGroup)
 router.post('/', authorize, createGroup)
+router.put('/:id', authorize, updateGroup)
+router.delete('/:id', authorize, deleteGroup)
 
 module.exports = router
