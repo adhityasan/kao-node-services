@@ -1,4 +1,6 @@
 const mongoose = require('mongoose')
+const Joi = require('joi')
+Joi.objectId = require('joi-objectid')(Joi)
 
 const Schema = new mongoose.Schema({
   route: {
@@ -36,6 +38,17 @@ const Schema = new mongoose.Schema({
   }
 })
 
+const joiSchema = {
+  route: Joi.string().max(1024).required(),
+  icon: Joi.string().max(50).optional(),
+  text: Joi.string().max(30).required(),
+  nested: Joi.boolean().required(),
+  childs: Joi.array().items(Joi.object()).optional(),
+  groupsPrivilege: Joi.array().items(Joi.objectId().error(() => 'groupsPrivilege items should be an objectId ref Group')).error(() => 'groupsPrivilege should be an array'),
+  rolesPrivilege: Joi.array().items(Joi.objectId().error(() => 'rolesPrivilege items should be an objectId ref Group')).error(() => 'rolesPrivilege should be an array')
+}
+
 const Navigation = mongoose.model('Navigation', Schema)
 
 exports.Navigation = Navigation
+exports.joiSchema_Navigation = joiSchema
