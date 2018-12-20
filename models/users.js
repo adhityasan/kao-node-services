@@ -10,14 +10,15 @@ const Schema = new mongoose.Schema({
     type: String,
     minlength: 6,
     maxlength: 255,
-    unique: true,
+    index: { unique: true, dropDups: true },
     trim: true,
     validate: {
       validator: function(v) {
         return (v.includes('@')) ? false : true
       },
       message: 'username should not contain \'@\' character'
-    }
+    },
+    required: true
   },
   password: {
     type: String,
@@ -27,9 +28,10 @@ const Schema = new mongoose.Schema({
   email: {
     type: String,
     match: /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-    unique: true,
+    index: { unique: true, dropDups: true },
     lowercase: true,
-    trim: true
+    trim: true,
+    required: true
   },
   activated: {
     type: Boolean,
