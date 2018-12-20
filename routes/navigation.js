@@ -24,7 +24,7 @@ async function getNavigation(req, res) {
   try {
     const navigation = await Navigation.findById(navid)
 
-    if (navigation) return res.status(404).send({ message: 'Navigation with given id was not found', data: { _id: navid, ...navigation } })
+    if (!navigation) return res.status(404).send({ message: 'Navigation with given id was not found', data: { _id: navid, ...navigation } })
 
     res.send({ message: `Success get Navigation, id: ${navid}`, data: navigation })
   } catch (error) {
