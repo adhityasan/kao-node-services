@@ -10,7 +10,7 @@ const Schema = new mongoose.Schema({
     type: String,
     maxlength: 255
   },
-  action_url: String,
+  action: Object,
   data: Object
 })
 
