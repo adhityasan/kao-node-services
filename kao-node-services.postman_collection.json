@@ -1,0 +1,808 @@
+{
+	"id": "d771fb74-ffab-40c2-81b9-86e45d359508",
+	"name": "kao-node-services",
+	"description": "",
+	"auth": null,
+	"events": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "6cf019b6-4e70-4aed-80c1-841a39b479b3",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "7c22faae-f991-43af-954d-d2fc6e5b9797",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variables": [
+		{
+			"key": "hostname",
+			"value": "http://localhost",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "port",
+			"value": "5000",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "base_url",
+			"value": "http://localhost:5000/api",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "userid_admin",
+			"value": "123123",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "userid_sample",
+			"value": "5c1385e09e6eac6a8ba1ac66",
+			"description": "",
+			"enabled": true
+		},
+		{
+			"key": "userid_testing",
+			"value": "5c18fd9034fb8a191163a1c8",
+			"description": "",
+			"type": "text",
+			"enabled": true
+		}
+	],
+	"order": [],
+	"folders_order": [
+		"16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+		"6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+		"ef681022-4d8a-465f-888e-68e68d31fb1f",
+		"a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+		"832e44ee-03ee-4f85-8742-852ddab3428a"
+	],
+	"folders": [
+		{
+			"id": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+			"name": "Authentication",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d771fb74-ffab-40c2-81b9-86e45d359508",
+			"folder": null,
+			"order": [
+				"91aaece5-e728-4489-b85e-b2bb7a019ea8",
+				"4edc5635-1cd5-47e1-a20e-5ee3b039b06a",
+				"5578254c-dafc-4fc7-bd3c-877af6c79854",
+				"5368ce13-fd29-495a-90f8-7582946b4293"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"name": "Group Management",
+			"description": "Group management for every user",
+			"auth": null,
+			"events": null,
+			"collection": "d771fb74-ffab-40c2-81b9-86e45d359508",
+			"folder": null,
+			"order": [
+				"955d7d35-b95d-446a-8835-59b8e6d2309b",
+				"74e67734-56e8-4a20-ab17-644a656d9be2",
+				"bfe2d2ae-8697-4c42-b90c-2706625a76c7",
+				"b188974c-4ec2-4eb6-a55c-a209a9f2cca9",
+				"cba4666c-8d74-47f2-a04c-954a06f617e0"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"name": "Navigation Management",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d771fb74-ffab-40c2-81b9-86e45d359508",
+			"folder": null,
+			"order": [
+				"652ab0de-ef83-4043-9dda-ed09cfeb5191",
+				"f03ed03d-7997-4bc1-80e1-a1d114e7cdf3",
+				"cbfa41f4-10e0-4cef-b439-f083113a16d4",
+				"30c2e439-048a-46f8-b55a-b50b160792ba",
+				"b9e8292d-280f-4c53-8a38-1365039c13fa"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"name": "Role Management",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d771fb74-ffab-40c2-81b9-86e45d359508",
+			"folder": null,
+			"order": [
+				"d836d78f-c9d1-45df-b5c9-4d5440c4b7d3",
+				"0364e42c-a510-484e-84bc-e2a29d2dfd95",
+				"00a08852-c231-4ee7-91e8-b3cfaebd449b",
+				"1905672b-fa82-43a4-8521-c6d259e96cb7",
+				"f719375d-3ce5-4112-b0ce-4cec910a480c"
+			],
+			"folders_order": []
+		},
+		{
+			"id": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"name": "User Management",
+			"description": "",
+			"auth": null,
+			"events": null,
+			"collection": "d771fb74-ffab-40c2-81b9-86e45d359508",
+			"folder": null,
+			"order": [
+				"efa0e8d2-bcc5-48d8-84e1-df7bb94e3e13",
+				"e7082980-f9d6-4a8a-a63c-dfea87602854",
+				"2fbc672e-1232-46a2-818c-a42abacc6dfb",
+				"d3d2406f-b5da-46cb-a3ba-ba3e6aad7f24",
+				"6ec481e2-f882-4ca6-92f9-396c4922d8ec"
+			],
+			"folders_order": []
+		}
+	],
+	"requests": [
+		{
+			"id": "00a08852-c231-4ee7-91e8-b3cfaebd449b",
+			"name": "create role",
+			"url": "{{base_url}}/role",
+			"description": "create a new role",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"rawModeData": "{\n\t\"name\": \"course-manager\",\n\t\"description\": \"user who can manage his own course\",\n\t\"main_url\": \"/course\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"name\": \"create-course\",\n\t\t\t\"description\": \"create a new course\",\n\t\t\t\"action_url\": \"/course/create\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"update-course\",\n\t\t\t\"description\": \"update a course\",\n\t\t\t\"action_url\": \"/course/update/:id\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"delete-course\",\n\t\t\t\"description\": \"/delete/update/:id\",\n\t\t\t\"action_url\": \"/course/delete/:id\"\n\t\t}\n\t]\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "0364e42c-a510-484e-84bc-e2a29d2dfd95",
+			"name": "role lists",
+			"url": "{{base_url}}/role",
+			"description": "get 10 roles lists",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "1905672b-fa82-43a4-8521-c6d259e96cb7",
+			"name": "update role",
+			"url": "{{base_url}}/role/5c1b114bc4b1531899247f9e",
+			"description": "update a role",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"rawModeData": "{\n\t\"name\": \"course-manager\",\n\t\"description\": \"user who can manage his own course\",\n\t\"main_url\": \"/mycourse\",\n\t\"tasks\": [\n\t\t{\n\t\t\t\"name\": \"create-course\",\n\t\t\t\"description\": \"create a new course\",\n\t\t\t\"action_url\": \"/course/create\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"update-course\",\n\t\t\t\"description\": \"update a course\",\n\t\t\t\"action_url\": \"/course/update/:id\"\n\t\t},\n\t\t{\n\t\t\t\"name\": \"delete-course\",\n\t\t\t\"description\": \"/delete/update/:id\",\n\t\t\t\"action_url\": \"/course/delete/:id\"\n\t\t}\n\t]\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "2fbc672e-1232-46a2-818c-a42abacc6dfb",
+			"name": "create user",
+			"url": "{{base_url}}/user",
+			"description": "create a new user",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"rawModeData": "{\n\t\"username\": \"testing2\",\n\t\"email\": \"testing2@gmail.com\",\n\t\"password\": \"12345678\",\n\t\"profile\": \"5c0a6d567735147457ed9d40\",\n\t\"groups\": [\n\t\t\"5c0a6d567735147457ed9d40\",\n\t\t\"5c0a6d567735147457ed9d40\"\n\t],\n\t\"role\": \"5c0a6d567735147457ed9d40\"\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "30c2e439-048a-46f8-b55a-b50b160792ba",
+			"name": "update navigation",
+			"url": "{{base_url}}/navigation/5c1b43f278a1b9374e1213e4",
+			"description": "update a root/child navigation",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": null,
+			"folder": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"rawModeData": "{\n\t\"route\": \"/dashboarding\",\n\t\"icon\": \"dashboard\",\n\t\"text\": \"Dashboarding\",\n\t\"nested\": false\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "4edc5635-1cd5-47e1-a20e-5ee3b039b06a",
+			"name": "logout (unused)",
+			"url": "{{base_url}}/auth/logout",
+			"description": "this logout is not to remove token. token should be removed from the client side.\nit's just to log / record that the user has logout",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5368ce13-fd29-495a-90f8-7582946b4293",
+			"name": "whoami",
+			"url": "{{base_url}}/auth/whoami",
+			"description": "route to check who am i now based on token i have",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "5578254c-dafc-4fc7-bd3c-877af6c79854",
+			"name": "register",
+			"url": "{{base_url}}/auth/register",
+			"description": "register a new user",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+			"rawModeData": "{\n\t\"username\": \"adhityasan\",\n\t\"email\": \"adhityad3v@gmail.com\",\n\t\"password\": \"!@#$1234\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "652ab0de-ef83-4043-9dda-ed09cfeb5191",
+			"name": "navigation",
+			"url": "{{base_url}}/navigation/5c1b43f278a1b9374e1213e4",
+			"description": "get a root/child navigation by id",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "6ec481e2-f882-4ca6-92f9-396c4922d8ec",
+			"name": "delete user",
+			"url": "{{base_url}}/user/5c18fe2f1818e919c041f24f",
+			"description": "delete an exist user",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"rawModeData": "",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "74e67734-56e8-4a20-ab17-644a656d9be2",
+			"name": "group lists",
+			"url": "{{base_url}}/group",
+			"description": "get 10 group lists",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "91aaece5-e728-4489-b85e-b2bb7a019ea8",
+			"name": "login",
+			"url": "{{base_url}}/auth/login",
+			"description": "login user to get token",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
+			"rawModeData": "{\n\t\"email\": \"kao_registration@gmail.com\",\n\t\"password\": \"I9q2b7a2l0\"\n}",
+			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "955d7d35-b95d-446a-8835-59b8e6d2309b",
+			"name": "group",
+			"url": "{{base_url}}/group/5c1a0144e58fb039c12852bf",
+			"description": "get a single group detail",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b188974c-4ec2-4eb6-a55c-a209a9f2cca9",
+			"name": "update group",
+			"url": "{{base_url}}/group/5c1a0144e58fb039c12852bf",
+			"description": "update a single group",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"rawModeData": "{\n\t\"name\": \"administrator\",\n\t\"description\": \"user has role as an administrator of the app\",\n\t\"main_url\": \"/dashboard/admin\"\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "b9e8292d-280f-4c53-8a38-1365039c13fa",
+			"name": "delete navigation",
+			"url": "{{base_url}}/navigation/5c1b43f278a1b9374e1213e4",
+			"description": "delete a root / child navigation.\nif the root got deleted, the childs too",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"rawModeData": "",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "bfe2d2ae-8697-4c42-b90c-2706625a76c7",
+			"name": "create group",
+			"url": "{{base_url}}/group",
+			"description": "create a new group",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"rawModeData": "{\n\t\"name\": \"admin\",\n\t\"description\": \"user has privillege as an administrator\",\n\t\"main_url\": \"/dashboard\"\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "cba4666c-8d74-47f2-a04c-954a06f617e0",
+			"name": "delete group",
+			"url": "{{base_url}}/group/5c1a0144e58fb039c12852bf",
+			"description": "delete a single group",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "ef681022-4d8a-465f-888e-68e68d31fb1f",
+			"rawModeData": "",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "cbfa41f4-10e0-4cef-b439-f083113a16d4",
+			"name": "create navigation",
+			"url": "{{base_url}}/navigation",
+			"description": "create a new root / child navigation",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json",
+					"description": ""
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"rawModeData": "{\n\t\"route\": \"/testing\",\n\t\"icon\": \"dashboard\",\n\t\"text\": \"Dashboard\",\n\t\"nested\": false,\n\t\"groupsPrivilege\": [\n\t\t\"5c1381733f044c6601c034b2\",\n\t\t\"5c1381733f044c6601c034b2\"\n\t],\n\t\"rolesPrivilege\": [\n\t\t\"5c1381733f044c6601c034b2\"\n\t]\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d3d2406f-b5da-46cb-a3ba-ba3e6aad7f24",
+			"name": "update user",
+			"url": "{{base_url}}/user/{{userid_testing}}",
+			"description": "update an exist user",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "PUT",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"rawModeData": "{\n\t\"activated\": true,\n\t\"username\": \"testing_new\"\n}",
+			"headers": "x-auth-token: \nContent-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "d836d78f-c9d1-45df-b5c9-4d5440c4b7d3",
+			"name": "role",
+			"url": "{{base_url}}/role/5c1b114bc4b1531899247f9e",
+			"description": "get a role based on id",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "e7082980-f9d6-4a8a-a63c-dfea87602854",
+			"name": "user lists",
+			"url": "{{base_url}}/user?pageSize=1&pageNumber=1",
+			"description": "get 10 user lists",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [
+				{
+					"key": "pageSize",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "pageNumber",
+					"value": "1",
+					"equals": true,
+					"description": "",
+					"enabled": true
+				}
+			],
+			"auth": null,
+			"events": [],
+			"folder": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "efa0e8d2-bcc5-48d8-84e1-df7bb94e3e13",
+			"name": "user",
+			"url": "{{base_url}}/user/{{userid_sample}}",
+			"description": "get a single user detail.",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "6eb421ce-13b1-4c7a-ab50-66384021d8cb",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f03ed03d-7997-4bc1-80e1-a1d114e7cdf3",
+			"name": "navigation lists",
+			"url": "{{base_url}}/navigation",
+			"description": "get all navigations",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "jwt",
+					"enabled": true
+				}
+			],
+			"method": "GET",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "832e44ee-03ee-4f85-8742-852ddab3428a",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		},
+		{
+			"id": "f719375d-3ce5-4112-b0ce-4cec910a480c",
+			"name": "delete role",
+			"url": "{{base_url}}/role/5c1b114bc4b1531899247f9e",
+			"description": "delete a single role by its id",
+			"data": null,
+			"dataMode": "params",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "",
+					"description": "",
+					"enabled": true
+				}
+			],
+			"method": "DELETE",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "a23bc672-4601-4ab3-8cb8-267d4d652c1b",
+			"headers": "x-auth-token: \n",
+			"pathVariables": {}
+		}
+	]
+}
