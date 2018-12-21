@@ -48,9 +48,9 @@ async function createGroup(req, res) {
 
   try {
     const newgroup = new Group(data)
-    newgroup.save()
+    const saveResult = await newgroup.save()
 
-    return res.send({ message: 'Success create new group', data: newgroup })
+    return res.send({ message: 'Success create new group', data: saveResult })
   } catch (error) {
     return res.status(400).send({ message: 'Fail create new group', error: error })    
   }
