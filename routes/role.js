@@ -48,9 +48,9 @@ async function createRole(req, res) {
 
   try {
     const newrole = new Role(data)
-    newrole.save()
+    const saveResult = await newrole.save()
 
-    return res.send({ message: 'Success create new role', data: newrole })
+    return res.send({ message: 'Success create new role', data: saveResult })
   } catch (error) {
     return res.status(400).send({ message: 'Fail create new role', error: error })    
   }

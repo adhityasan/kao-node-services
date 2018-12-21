@@ -8,7 +8,8 @@ const Schema = new mongoose.Schema({
     type: String,
     trim: true,
     minlength: 5,
-    maxlength: 30,
+    maxlength: 100,
+    index: { unique: true, dropDups: true },
     required: true
   },
   description: {
@@ -23,7 +24,7 @@ const Schema = new mongoose.Schema({
 })
 
 const joiSchema = {
-  name: Joi.string().min(5).max(30).required(),
+  name: Joi.string().min(5).max(100).required(),
   description: Joi.string().min(8).max(100).required(),
   main_url: Joi.string(),
   data: Joi.object().optional(),
