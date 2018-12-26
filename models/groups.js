@@ -8,6 +8,7 @@ const Schema = new mongoose.Schema({
     trim: true,
     minlength: 5,
     maxlength: 30,
+    index: { unique: true, dropDups: true },
     required: true
   },
   description: {
