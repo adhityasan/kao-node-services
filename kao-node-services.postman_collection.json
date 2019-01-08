@@ -87,7 +87,8 @@
 				"ef162911-f9c6-4a0c-a35d-2e694ac23b62",
 				"da5e54e1-77f1-42cf-88be-1941135dd456",
 				"94886328-10c7-4fd1-a27a-3dcced48eef6",
-				"d45daa54-bac3-446e-9913-385223f6c860"
+				"d45daa54-bac3-446e-9913-385223f6c860",
+				"60c5593b-861a-4bd0-963b-47546b4ef097"
 			],
 			"folders_order": []
 		},
@@ -512,6 +513,35 @@
 			"folder": "16fa25ca-85ea-4a94-b2ed-a29c73e02c4f",
 			"rawModeData": "{\n\t\"username\": \"tester_user\",\n\t\"email\": \"tester_user@kao.com\",\n\t\"password\": \"!@#$1234\"\n}",
 			"headers": "Content-Type: application/json\n",
+			"pathVariables": {}
+		},
+		{
+			"id": "60c5593b-861a-4bd0-963b-47546b4ef097",
+			"name": "Init Navigation: Administration",
+			"url": "{{base_url}}/navigation",
+			"description": "navigation for front end",
+			"data": [],
+			"dataMode": "raw",
+			"headerData": [
+				{
+					"key": "x-auth-token",
+					"value": "{{token_administrator}}",
+					"description": "",
+					"enabled": true
+				},
+				{
+					"key": "Content-Type",
+					"value": "application/json"
+				}
+			],
+			"method": "POST",
+			"pathVariableData": [],
+			"queryParams": [],
+			"auth": null,
+			"events": [],
+			"folder": "7aab9c9c-876f-49d0-9f8e-edf5a31f335d",
+			"rawModeData": "{\n\t\"route\": \"#administration\",\n\t\"icon\": \"config\",\n\t\"text\": \"Adminstration\",\n\t\"nested\": true,\n\t\"childs\": [\n\t\t{\n\t\t\t\"route\": \"/administration/user\",\n\t\t\t\"icon\": \"users\",\n\t\t\t\"text\": \"User\",\n\t\t\t\"nested\": false\n\t\t},\n\t\t{\n\t\t\t\"route\": \"/administration/group\",\n\t\t\t\"icon\": \"groups\",\n\t\t\t\"text\": \"Group\",\n\t\t\t\"nested\": false\n\t\t},\n\t\t{\n\t\t\t\"route\": \"/administration/role\",\n\t\t\t\"icon\": \"roles\",\n\t\t\t\"text\": \"Role\",\n\t\t\t\"nested\": false\n\t\t}\n\t],\n\t\"groupsPrivilege\": [\n\t\t\"{{id_group_admin}}\"\n\t],\n\t\"rolesPrivilege\": [\n\t\t\"{{id_group_admin}}\"\n\t]\n}",
+			"headers": "x-auth-token: {{token_administrator}}\nContent-Type: application/json\n",
 			"pathVariables": {}
 		},
 		{
