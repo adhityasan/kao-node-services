@@ -36,7 +36,8 @@
     "lodash": "^4.17.11",
     "module-alias": "^2.1.0",
     "mongoose": "^5.3.16",
-    "password-validator": "^4.1.1"
+    "password-validator": "^4.1.1",
+    "rand-token": "^0.4.0"
   },
   "devDependencies": {
     "morgan": "^1.9.1"
