@@ -3,5 +3,8 @@
   "author": "adhityasan",
   "email": "adhityad3v@gmail.com",
   "jwtPrivateKey": "",
-  "tokenPrefix": ""
+  "tokenPrefix": "",
+  "registeredApp": [
+    ""
+  ]
 }

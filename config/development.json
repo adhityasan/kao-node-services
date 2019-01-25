@@ -11,5 +11,8 @@
     "password": "xXxXxXxXx"
   },
   "jwtPrivateKey": "!@#$1234",
-  "tokenPrefix": "KaonashiSan__"
+  "tokenPrefix": "KaonashiSan__",
+  "registeredApp": [
+    "AIzaSyCBi-ufC3_K13zVlMYZj7_7lzIZ3hRFgzM"
+  ]
 }
