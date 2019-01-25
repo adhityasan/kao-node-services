@@ -80,7 +80,8 @@ const joiSchema = {
   password: Joi.string().min(8).max(100).required(),
   profile: Joi.objectId().error(() => 'Profile should be an ObjectId ref Profile document'),
   groups: Joi.array().items(Joi.objectId().error(() => 'Groups item should be an ObjectId ref Group document')).error(() => 'Groups should be an array contain ObjectId'),
-  role: Joi.objectId().error(() => 'Role should be an ObjectId ref Role document')
+  role: Joi.objectId().error(() => 'Role should be an ObjectId ref Role document'),
+  remember: Joi.boolean().optional()
 }
 
 exports.User = User
