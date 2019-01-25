@@ -1,10 +1,12 @@
 const _ = require('lodash')
 const express = require('express')
 const bcrypt = require('bcrypt')
+const randtoken = require('rand-token')
 const  { authorize_user } = require('@middlewares/authorization')
 
 const { joiValidate, buildErrorResponse: joiErrResponse } = require('@utils/joi-validate')
 const { User, joiSchema_User } = require('@models/users')
+const { Authlog } = require('@models/authlog')
 
 const router = express.Router()
 
@@ -14,7 +16,7 @@ async function login(req, res) {
   if (joiError) return res.send(joiErrResponse(joiError))
   
   try {
-    const { username, password, email } = req.body
+    const { username, password, email, remember } = req.body
     const user = !email ? 
       await User.findOne({ username: username }) :
       await User.findOne({ email: email }) 
@@ -29,8 +31,25 @@ async function login(req, res) {
 
     user.lastLogin = new Date()
     user.save()
-    
-    res.header('x-auth-token', token).send(_.pick(user, [ '_id', 'username', 'email', 'verified', 'lastLogin', 'navigation', 'groups', 'role' ]))
+
+    const log = new Authlog()
+    log.userId = user._id
+    log.time = new Date()
+    if (remember) log.refreshToken = randtoken.uid(100)
+    log.save()
+
+    const responseData = new Object()
+    responseData.userId = user._id
+    responseData.username = user.username
+    responseData.verified = user.verified
+    responseData.navigation = user.navigation
+    responseData.groups = user.groups
+    responseData.role = user.role
+    responseData.token = token
+    responseData.expiresIn = 3600
+    if (remember) responseData.refreshToken = log.refreshToken
+
+    res.header('x-auth-token', token).send(responseData)
     
   } catch (error) {
     res.status(400).send({ message: 'Semething went wrong in the process', error: error })
