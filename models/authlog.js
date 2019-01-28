@@ -6,7 +6,8 @@ const Schema = mongoose.Schema({
     ref: 'User'
   },
   time: Date,
-  refreshToken: String
+  refreshToken: String,
+  OTPToken: String
 })
 
 const Authlog = mongoose.model('Authlog', Schema)

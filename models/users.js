@@ -47,6 +47,10 @@ const Schema = new mongoose.Schema({
   role: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Role'
+  },
+  useOTP: {
+    type: Boolean,
+    default: false
   }
 })
 

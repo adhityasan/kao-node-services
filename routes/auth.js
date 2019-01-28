@@ -32,6 +32,11 @@ async function login(req, res) {
     user.lastLogin = new Date()
     user.save()
 
+    if (user.useOTP) {
+      // handle OTP
+      // 
+    }
+
     const log = new Authlog()
     log.userId = user._id
     log.time = new Date()
@@ -46,13 +51,13 @@ async function login(req, res) {
     responseData.groups = user.groups
     responseData.role = user.role
     responseData.token = token
-    responseData.expiresIn = 3600
+    responseData.expiresIn = '3600'
     if (remember) responseData.refreshToken = log.refreshToken
 
     res.header('x-auth-token', token).send(responseData)
-    
+
   } catch (error) {
-    res.status(400).send({ message: 'Semething went wrong in the process', error: error })
+    res.status(400).send({ message: 'Semething went wrong in the process', data: { error: error } })
   }
 }
 
