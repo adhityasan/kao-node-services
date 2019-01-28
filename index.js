@@ -7,6 +7,7 @@ const config = require('config')
 const debug = require('debug')('app:startup')
 const dbdebug = require('debug')('app:db')
 const mongoose = require('mongoose')
+var cors = require('cors')
 
 const r_auth = require('@routes/auth')
 const r_user = require('@routes/user')
@@ -35,6 +36,7 @@ mongoose.connect(dbconnection, connectOption)
   .then(() => dbdebug(`Database ${env.parsed.DB_NAME} selected`))
   .catch(err => dbdebug(`Fail connect to ${dbconnection}: ${err}`))
 
+app.use(cors()) // enable cross origin resource sharing for development
 app.use(helmet())
 app.use(express.json())
 app.use(express.urlencoded({extended: true}))
