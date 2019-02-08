@@ -1,6 +1,7 @@
 const _ = require('lodash')
 const express = require('express')
 const bcrypt = require('bcrypt')
+const Joi = require('joi')
 const randtoken = require('rand-token')
 const  { authorize_user } = require('@middlewares/authorization')
 
@@ -11,7 +12,15 @@ const { Authlog } = require('@models/authlog')
 const router = express.Router()
 
 async function login(req, res) {
-  const { error: joiError } = joiValidate(req.body, joiSchema_User, true)
+
+  const loginSchema = {
+    username: Joi.string().min(6).max(30).regex(/@/, { name: 'valid username', invert: true }).optional().allow(''),
+    email: Joi.string().email().regex(/@/, { name: 'valid email', invert: false }).optional().allow(''),
+    password: Joi.string().min(8).max(100).required(),
+    remember: Joi.boolean().optional()
+  }
+
+  const { error: joiError } = joiValidate(req.body, loginSchema, true)
   
   if (joiError) return res.send(joiErrResponse(joiError))
   
@@ -22,21 +31,21 @@ async function login(req, res) {
       await User.findOne({ email: email }) 
 
     if (!user) return res.status(400).send({ message: 'Username atau email tidak ditemukan', data: _.pick(req.body, ['username', 'email']) })
-
+    
     const validPassword = await bcrypt.compare(password, user.password)
-
+    
     if (!validPassword) return res.status(400).send({ message: 'Password tidak valid', data: _.pick(req.body, ['username', 'email']) })
-
+      
     const token = user.generateAuthToken()
-
+    
     user.lastLogin = new Date()
     user.save()
-
+    
     if (user.useOTP) {
       // handle OTP
       // 
     }
-
+    
     const log = new Authlog()
     log.userId = user._id
     log.time = new Date()
