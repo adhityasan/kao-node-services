@@ -14,6 +14,7 @@ const router = express.Router()
 async function login(req, res) {
 
   const loginSchema = {
+    identifier: Joi.string().optional(),
     username: Joi.string().min(6).max(30).regex(/@/, { name: 'valid username', invert: true }).optional().allow(''),
     email: Joi.string().email().regex(/@/, { name: 'valid email', invert: false }).optional().allow(''),
     password: Joi.string().min(8).max(100).required(),
@@ -25,8 +26,8 @@ async function login(req, res) {
   if (joiError) return res.send(joiErrResponse(joiError))
   
   try {
-    const { username, password, email, remember } = req.body
-    const user = !email ? 
+    const { username, password, email, remember, identifier } = req.body
+    const user = identifier == 'username' ? 
       await User.findOne({ username: username }) :
       await User.findOne({ email: email }) 
 
